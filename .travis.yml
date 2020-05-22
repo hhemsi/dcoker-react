@@ -9,3 +9,15 @@ before_install:
 
 script:
     - docker run -e CI=true hhemsi/dcoker-react npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-west-1"
+    app: "Docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-us-west-1-363582733969"
+    bucket_path: "Docker-react"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
