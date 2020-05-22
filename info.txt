@@ -18,8 +18,9 @@ docker run -p 8080:80 hhemsi/frontend_prod
 
 
 # adding git
-git init
-git remote set-url origin git@github.com:hhemsi/dcoker-react.git
+git clone git@github.com:hhemsi/dcoker-react.git
+# manually copy the files over
 git add .
-git commit -m "dd"
-git push origin -u origin master
+git commit -m "Initial commit"
+git push
+ 
