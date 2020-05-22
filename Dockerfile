@@ -14,6 +14,8 @@ CMD ["npm", "run","build"]
 # build will be in /app/build
 # now the run phase, copy the build from previous
 FROM nginx
+# for elasticbeanstalk to expose the port
+EXPOSE 80 
 # copy from previous /app/build to a place where nginx can serve
 COPY --from=builder /app/build /usr/share/nginx/html
 
