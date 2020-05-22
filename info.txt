@@ -1,0 +1,25 @@
+docker build -f Dockerfile.dev .
+
+docker run -it -p 3000:3000 CONTAINER_ID 
+
+# for instance changes in sw without bulding the container
+# we are mapping present working direcoty to /app in container
+# also do not map /app/node_modules as this does not exist in the local directory
+# I deleted this to make the build fater and use the versions provided by the base image
+
+docker run -it -p 3000:3000 -v /app/node_modules -v $(p):/app 7a77f11f4c3f
+
+
+# building production with nginx server
+docker build -t hhemsi/frontend_prod .
+
+# run it, and dorwarding the port to 80
+docker run -p 8080:80 hhemsi/frontend_prod
+
+
+# adding git
+git init
+git remote set-url origin git@github.com:hhemsi/dcoker-react.git
+git add .
+git commit -m "dd"
+git push origin -u origin master
