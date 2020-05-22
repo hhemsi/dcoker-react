@@ -2,10 +2,10 @@ language: generic
 sudo: requied
 
 services:
-    -docker
+    - docker
 
 before_install:
-    -docker build -t hhemsi/dcoker-react -f Dockerfile.dev .
+    - docker build -t hhemsi/dcoker-react -f Dockerfile.dev .
 
 script:
     - docker run -e CI=true hhemsi/dcoker-react npm run test -- --coverage
